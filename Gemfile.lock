@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    model_to_googlesheet (1.0.6)
+    model_to_googlesheet (1.0.0)
       activerecord
       google_drive (~> 1.0)
       rails (~> 4.2)
