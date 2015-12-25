@@ -19,12 +19,14 @@ Once you get **client_id** and **session_id**, you can get a **refresh_token** w
 Once you get your **client_id**, **client_secret** and **refresh_token**, you can set them either globally, permodel, or permethod. 
 Available options are include:
 
-		client_id      
-		client_secret 
-		refresh_token 
-		spreadsheet   - title of the spreadheet you'd like to export your data in.
-		worksheet     - title of the worksheet you'd like to export your data in. if either worksheet or spreadsheet with such titles don't exit, they will be created.
-		convert_with  - (optional) either symbol of method name in your model or Proc that will return hash (columns and values to include in a worksheet created).
+`client_id`    
+`client_secret`
+`refresh_token`
+`spreadsheet`   - title of the spreadheet you'd like to export your data in.
+`worksheet`     - title of the worksheet you'd like to export your data in. if either worksheet or spreadsheet with such titles don't exit, they will be created.
+`convert_with`  - (optional) either symbol of method name in your model or Proc that will return hash (== columns and values to include in a worksheet created).
+`update`        - (optional, only works for separate records) true or false, whether to update rows found by :find_by option. that is, if you have googlesheet rows with unique :name values, you may want to update to set `update: true, find_by: :name`, so that on `user.export_to_googlesheet` gem will try to find a row with a name equal to user's name, and, if successful, update it (or append a new one if row wasn't found). default behavious is to append any record.
+`find_by`       - (optional, only works for separate records, necessary if `update: true`)
 
 
 ##You can put your configuration in */config/initializers*:
@@ -62,6 +64,10 @@ in your model. You can also avoid creating new method with proc or lambda:
 If you export a collection of users, gem will recreate your worksheet and export it all to a clean one. If you export one user, gem will add it to the worksheet if it was already created and create a new one (with a spreadsheet if needed) if it couldn't find one, adding record to a newly created one.
 
 
+##How to delete a record?
+You can clear a record with `record.delete_from_googlesheet` method. It requires `:find_by` option to be able to find a record to delete. If spreadsheet or worksheet or record were not found, just returns.
 
+---------
+Now works with Mongoid too.
 
 

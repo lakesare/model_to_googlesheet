@@ -1,4 +1,3 @@
-require 'active_record'
 require 'rails/railtie'
 require 'google/api_client'
 require 'google_drive'
@@ -8,8 +7,6 @@ require 'model_to_googlesheet/google_drive/session'
 require 'model_to_googlesheet/google_drive/spreadsheet'
 require 'model_to_googlesheet/google_drive/worksheet'
 
-require 'model_to_googlesheet/export'
-require 'model_to_googlesheet/railtie'
 
 module ModelToGooglesheet
 
@@ -38,20 +35,26 @@ module ModelToGooglesheet
 	class Configuration
 		OPTIONS = [ 
 			:client_id, :client_secret, :refresh_token,
-			:worksheet, :spreadsheet, 
-			:convert_with 
+			:spreadsheet, :worksheet, 
+			:convert_with, 
+			:update, :find_by
 		]
+
 
 		attr_accessor *OPTIONS
 
 		# defaults
 		def initialize
-			@client_id      = nil
-			@client_secret  = nil
-			@refresh_token  = nil
-			@worksheet      = nil
-			@spreadsheet    = nil
-			@convert_with   = nil #optional
+			@client_id     = nil
+			@client_secret = nil
+			@refresh_token = nil
+			@spreadsheet   = nil
+			@worksheet     = nil
+			@convert_with  = nil   #optional
+			@update        = false #optional, will only be applied to separate records. 
+				#if set to true, finds a record in a sheet by :id and updates it. 
+				#if set to :symbol, finds a record in a sheet by :symbol and updates it
+			@find_by       = :id
 		end
 
 		def self.merge_configs permethod_options, permodel_configuration
@@ -67,6 +70,8 @@ module ModelToGooglesheet
 end
 
 
-
+require 'model_to_googlesheet/helpers'
+require 'model_to_googlesheet/export'
+require 'model_to_googlesheet/railtie'
 
 
