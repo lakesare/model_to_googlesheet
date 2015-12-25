@@ -13,7 +13,7 @@ Choose 'other' as an application type.
 
 Once you get **client_id** and **session_id**, you can get a **refresh_token** with:
 
-`rake model_to_googlesheet:get_refresh_token client_id='274709489501-ekvsdc8cpuh9nrps73h55m29i1kbgtgk.apps.googleusercontent.com' client_secret='hbSi0Q7VWArzLQZ2maJoagdx'`
+`rake model_to_googlesheet:get_refresh_token client_id='274709489501-erfwefrefew14dd43fwf.apps.googleusercontent.com' client_secret='fewcerwfv3432w2r'`
 
 ###Configuration
 Once you get your **client_id**, **client_secret** and **refresh_token**, you can set them either globally, permodel, or permethod. 
