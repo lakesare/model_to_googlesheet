@@ -1,7 +1,7 @@
 module GoogleDrive
 	class Worksheet
 
-		def export_hash hash, update:, find_by:
+		def export_hash hash, update: false, find_by: nil
 			update_keys(hash)
 
 			if update #find by :id/:whatever and update if found, else append
@@ -16,7 +16,7 @@ module GoogleDrive
 		end
 
 		#either returns first row with given condition true, or nil
-		def row_with_hash hash, find_by:
+		def row_with_hash hash, find_by: nil
 			row = list.find do |row| #GoogleDrive::ListRow
 				row[find_by] == hash[find_by].to_s
 			end

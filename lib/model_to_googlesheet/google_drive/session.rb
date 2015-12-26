@@ -2,7 +2,7 @@ require_relative 'authentication_helper'
 module GoogleDrive
 	class Session
 
-		def self.new_for_gs client_id:, client_secret:, refresh_token:
+		def self.new_for_gs client_id: nil, client_secret: nil, refresh_token: nil
 			auth = GoogleDrive::AuthenticationHelper.set_auth client_id, client_secret
 
 			auth.refresh_token = refresh_token
