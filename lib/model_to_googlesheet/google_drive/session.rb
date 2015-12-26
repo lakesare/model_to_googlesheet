@@ -22,7 +22,8 @@ module GoogleDrive
 			exact_sss(title).first
 		end
 		def exact_sss title
-			spreadsheets(title: title, 'title-exact': true).select { |ss| !ss.labels.trashed }
+			spreadsheets(title: title, :'title-exact' => true).select { |ss| !ss.labels.trashed }
+			# (:'title-exact' => true this stupid form is for ruby 2.1)
 		end
 
 

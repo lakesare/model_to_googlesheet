@@ -6,6 +6,7 @@ PATH
       rails (~> 3.2)
 
 GEM
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.19)
       actionpack (= 3.2.19)
