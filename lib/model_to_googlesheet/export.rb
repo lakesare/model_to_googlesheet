@@ -96,7 +96,18 @@ module ModelToGooglesheet
 							ws.export_hash record_hash, update: false, find_by: false
 						end
 						ws.save
-					}.rescue(2)
+					}.rescue(2){
+						# get a new session token (expires in about 1hr)
+						# if this isn't why we failed, refreshing token 
+						# is still useful.
+						session = GoogleDrive::Session.new_for_gs({
+							client_id: options[:client_id], 
+							client_secret: options[:client_secret], 
+							refresh_token: options[:refresh_token]
+						})
+						ss = session.exact_ss options[:spreadsheet]
+						ws = ss.worksheet_by_title options[:worksheet]
+					}
 
 
 				end

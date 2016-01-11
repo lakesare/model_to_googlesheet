@@ -1,5 +1,6 @@
 
 shared_context :create_session do
+	
 	let(:client_id) { 'inset yours' }
 	let(:client_secret) { 'inset yours' }
 	let(:refresh_token) { 'inset yours' }

@@ -15,6 +15,7 @@ module ActiveRecordHelper
 	end
 
 	def connect_to_db
+		require 'active_record' #because mongodb is also possible, so let's not put in in gemspec
 		ActiveRecord::Base.establish_connection(
 			:adapter => 'sqlite3',
 			:database =>  'spec/test.sqlite3.db'
