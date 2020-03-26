@@ -1,10 +1,10 @@
-###ModelToGooglesheet
+### ModelToGooglesheet
 
-###How to install?
+### How to install?
 
 		gem 'model_to_googlesheet'
 
-###How to obtain client_id, **client_secret** and **refresh_token**?
+### How to obtain client_id, **client_secret** and **refresh_token**?
 https://auth0.com/docs/connections/social/google  
 
 After creation, go to https://console.developers.google.com/apis/library?project=db-to-gs and enable Drive api.  
