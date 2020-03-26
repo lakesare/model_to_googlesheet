@@ -83,7 +83,7 @@ GEM
     logging (2.0.0)
       little-plugger (~> 1.1)
       multi_json (~> 1.10)
-    mail (2.5.4)
+    mail (2.5.5)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     memoist (0.13.0)
