@@ -2,7 +2,7 @@
 
 ### How to install it?
 
-		gem 'model_to_googlesheet'
+	gem 'model_to_googlesheet'
 
 ### How to obtain client_id, **client_secret** and **refresh_token**?
 https://auth0.com/docs/connections/social/google  
